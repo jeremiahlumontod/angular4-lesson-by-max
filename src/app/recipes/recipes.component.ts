@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Recipe } from './recipe.model';
+
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit {
+  selectedRecipe: Recipe;
 
-  constructor() { }
+  constructor() { 
+    this.selectedRecipe = new Recipe('A Test Recipe', 'This A Test Recipe description', 'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg');
+  }
 
   ngOnInit() {
   }

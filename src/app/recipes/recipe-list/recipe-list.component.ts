@@ -11,8 +11,8 @@ export class RecipeListComponent implements OnInit {
   @Output() recipeWasSelected = new EventEmitter<Recipe>();
 
   recipes: Recipe[] = [
-    new Recipe('A Test Recipe', 'This is simply a test', 'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg'),
-    new Recipe('Another Test Recipe', 'This is simply a test', 'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg')
+    new Recipe('A Test Recipe', 'This A Test Recipe description', 'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg'),
+    new Recipe('Another Test Recipe', 'This is Another Test Recipe description', 'https://birdsongfarmohio.com/images/bsRecipes.jpg')
   ];
 
   constructor() { }
@@ -21,7 +21,8 @@ export class RecipeListComponent implements OnInit {
   }
 
   onRecipeSelected(recipe: Recipe) {
-   this.recipeWasSelected.emit(recipe);
+    console.log('recipe-list component: recipeWasSelected fired, values are: ' + recipe.name + ' == ' + recipe.description + '==' + recipe.imagePath);    
+    this.recipeWasSelected.emit(recipe);
   }
   
 }
