@@ -13,7 +13,7 @@ import { Ingredient } from '../shared/ingredient.model';
 export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
 
-  constructor() { 
+  constructor(private recipeService: RecipeService) { 
     this.selectedRecipe = new Recipe(
       'Tasty Schnitzel',
       'A super-tasty Schnitzel - just awesome!',
@@ -25,6 +25,12 @@ export class RecipesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.recipeService.recipeSelected
+      .subscribe(
+        (recipe: Recipe) => {
+          this.selectedRecipe = recipe;
+        }
+      );
   }
 
 }
