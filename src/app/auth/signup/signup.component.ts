@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  //test@test.com / Test123! for signup
   constructor(private authService: AuthService) { }
 
   ngOnInit() {

@@ -20,6 +20,7 @@ export class AuthService {
       .then(
         response => {
           this.router.navigate(['/']);
+          console.log('login result:' + response);
           firebase.auth().currentUser.getToken()
             .then(
               (token: string) => this.token = token
@@ -27,12 +28,20 @@ export class AuthService {
         }
       )
       .catch(
-        error => console.log(error)
+        error => {
+          console.log(error);
+          console.log('login error:' + error);
+        }  
       );
   }
 
   logout() {
-    firebase.auth().signOut();
+    firebase.auth().signOut()
+    .then(
+      (response) => {
+        console.log('logout result: ' + response);
+      }
+    );
     this.token = null;
   }
 
