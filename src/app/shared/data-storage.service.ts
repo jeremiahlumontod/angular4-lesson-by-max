@@ -14,29 +14,30 @@ export class DataStorageService {
   }
 
   getRecipes() {
-    // this.http.get('https://ng-recipe-book-f9d31.firebaseio.com/recipes.json')
-    //   .map(
-    //     (response: Response) => {
-    //       const recipes: Recipe[] = response.json();
-    //       for (let recipe of recipes) {
-    //         if (!recipe['ingredients']) {
-    //           recipe['ingredients'] = [];
-    //         }
-    //       }
-    //       return recipes;
-    //     }
-    //   )
-    //   .subscribe(
-    //     (recipes: Recipe[]) => {
-    //       this.recipeService.setRecipes(recipes);
-    //     }
-    //   );
     this.http.get('https://ng-recipe-book-f9d31.firebaseio.com/recipes.json')
-      .subscribe(
+      .map(
         (response: Response) => {
           const recipes: Recipe[] = response.json();
+          for (let recipe of recipes) {
+            if (!recipe['ingredients']) {
+              console.log(recipe);
+              recipe['ingredients'] = [];
+            }
+          }
+          return recipes;
+        }
+      )
+      .subscribe(
+        (recipes: Recipe[]) => {
           this.recipeService.setRecipes(recipes);
         }
-      );    
+      );
+    // this.http.get('https://ng-recipe-book-f9d31.firebaseio.com/recipes.json')
+    //   .subscribe(
+    //     (response: Response) => {
+    //       const recipes: Recipe[] = response.json();
+    //       this.recipeService.setRecipes(recipes);
+    //     }
+    //   );    
   }
 }
