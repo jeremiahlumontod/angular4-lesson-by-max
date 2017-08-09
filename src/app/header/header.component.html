@@ -12,15 +12,12 @@
                 </template>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a routerLink="/signup">Register</a></li>
-                <li><a routerLink="/signin">Login</a></li>
-                <li>
-                    <a
-                    style="cursor: pointer;"
-                    (click)="onLogout()">
-                    Logout
-                    </a>
-                </li>
+                <li><a routerLink="/signup" *ngIf="!authService.isAuthenticated()">Register</a></li>
+                <li><a routerLink="/signin" *ngIf="!authService.isAuthenticated()">Login</a></li>
+                <li><a
+                style="cursor: pointer;"
+                (click)="onLogout()"
+                *ngIf="authService.isAuthenticated()">Logout</a></li>
                 <li class="dropdown" appDropdown *ngIf="authService.isAuthenticated()">
                     <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
                     <ul class="dropdown-menu">
