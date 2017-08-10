@@ -15,7 +15,7 @@ angular-cli:
 IDE:
 Visual Studio Code (this is free)
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 3.10.10
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
