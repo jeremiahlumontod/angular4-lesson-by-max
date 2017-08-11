@@ -9,8 +9,10 @@ import { AuthService } from '../../auth/auth.service';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
+  authService: AuthService;
   constructor(private dataStorageService: DataStorageService,
-              private authService: AuthService) {
+              private pauthService: AuthService) {
+    this.authService = pauthService;                
   }
 
   onSaveData() {
